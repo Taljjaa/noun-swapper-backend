@@ -27,6 +27,9 @@ rails s
 
 Enjoy some fun slam poetry!
 
+## Demo 
+Check out my [demo](https://youtu.be/PHizx_UMSUM) on Youtube
+
 ## Contributing
 
 Contributions are welcome. Feel free to open a pull request or branch from this project. Make it your own!
