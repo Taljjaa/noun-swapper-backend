@@ -1,0 +1,110 @@
+Started GET "/poems" for ::1 at 2020-02-11 14:09:32 -0800
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PoemsController#index as */*
+  [1m[36mPoem Load (49.9ms)[0m  [1m[34mSELECT "poems".* FROM "poems"[0m
+  ↳ app/controllers/poems_controller.rb:4:in `index'
+Completed 200 OK in 155ms (Views: 3.4ms | ActiveRecord: 133.7ms | Allocations: 2744)
+
+
+Started GET "/poems" for ::1 at 2020-02-11 14:09:41 -0800
+Processing by PoemsController#index as */*
+  [1m[36mPoem Load (0.4ms)[0m  [1m[34mSELECT "poems".* FROM "poems"[0m
+  ↳ app/controllers/poems_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.4ms | Allocations: 797)
+
+
+Started GET "/poems" for ::1 at 2020-02-11 14:10:05 -0800
+Processing by PoemsController#index as */*
+  [1m[36mPoem Load (0.5ms)[0m  [1m[34mSELECT "poems".* FROM "poems"[0m
+  ↳ app/controllers/poems_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.5ms | Allocations: 797)
+
+
+Started POST "/poems" for ::1 at 2020-02-11 14:11:02 -0800
+Processing by PoemsController#create as JSON
+  Parameters: {"title"=>"Test", "content"=>"Out of the night that covers me,\n      Black as the pit from pole to pole,\nI thank whatever gods may be\n      For my unconquerable soul.\n\nIn the fell clutch of circumstance\n      I have not winced nor cried aloud.\nUnder the bludgeonings of chance\n      My head is bloody, but unbowed.\n\nBeyond this place of wrath and tears\n      Looms but the Horror of the shade,\nAnd yet the menace of the years\n      Finds and shall find me unafraid.", "modified_content"=>"Out of the pegboard that dugouts me, Vexatious as the delineation from proclamation to business, I concur whatever lobsters may countersue For my squeak stopper. In the grasshopper conservancy of jalopy I boast falsely gasped nor sized loosely. Under the disadvantages of relevance My coolant signifies laborious, but staple. Beyond this implementation of seventy and zooms Baritones but the Editorialist of the buzzword, And quickly the class of the preventions Infringements and shall dupe me spotty.", "username"=>"Jen", "poem"=>{"title"=>"Test", "content"=>"Out of the night that covers me,\n      Black as the pit from pole to pole,\nI thank whatever gods may be\n      For my unconquerable soul.\n\nIn the fell clutch of circumstance\n      I have not winced nor cried aloud.\nUnder the bludgeonings of chance\n      My head is bloody, but unbowed.\n\nBeyond this place of wrath and tears\n      Looms but the Horror of the shade,\nAnd yet the menace of the years\n      Finds and shall find me unafraid.", "modified_content"=>"Out of the pegboard that dugouts me, Vexatious as the delineation from proclamation to business, I concur whatever lobsters may countersue For my squeak stopper. In the grasshopper conservancy of jalopy I boast falsely gasped nor sized loosely. Under the disadvantages of relevance My coolant signifies laborious, but staple. Beyond this implementation of seventy and zooms Baritones but the Editorialist of the buzzword, And quickly the class of the preventions Infringements and shall dupe me spotty."}}
+  [1m[36mUser Load (13.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jen"], ["LIMIT", 1]]
+  ↳ app/controllers/poems_controller.rb:9:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/poems_controller.rb:13:in `create'
+  [1m[36mUser Create (6.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Jen"], ["created_at", "2020-02-11 22:11:02.886786"], ["updated_at", "2020-02-11 22:11:02.886786"]]
+  ↳ app/controllers/poems_controller.rb:13:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/poems_controller.rb:13:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/poems_controller.rb:16:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/poems_controller.rb:16:in `create'
+  [1m[36mPoem Create (3.5ms)[0m  [1m[32mINSERT INTO "poems" ("title", "content", "modified_content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Test"], ["content", "Out of the night that covers me,\n      Black as the pit from pole to pole,\nI thank whatever gods may be\n      For my unconquerable soul.\n\nIn the fell clutch of circumstance\n      I have not winced nor cried aloud.\nUnder the bludgeonings of chance\n      My head is bloody, but unbowed.\n\nBeyond this place of wrath and tears\n      Looms but the Horror of the shade,\nAnd yet the menace of the years\n      Finds and shall find me unafraid."], ["modified_content", "Out of the pegboard that dugouts me, Vexatious as the delineation from proclamation to business, I concur whatever lobsters may countersue For my squeak stopper. In the grasshopper conservancy of jalopy I boast falsely gasped nor sized loosely. Under the disadvantages of relevance My coolant signifies laborious, but staple. Beyond this implementation of seventy and zooms Baritones but the Editorialist of the buzzword, And quickly the class of the preventions Infringements and shall dupe me spotty."], ["user_id", 1], ["created_at", "2020-02-11 22:11:02.915470"], ["updated_at", "2020-02-11 22:11:02.915470"]]
+  ↳ app/controllers/poems_controller.rb:16:in `create'
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/poems_controller.rb:16:in `create'
+Completed 200 OK in 157ms (Views: 1.2ms | ActiveRecord: 72.7ms | Allocations: 19744)
+
+
+Started PATCH "/poems/1" for ::1 at 2020-02-11 14:12:17 -0800
+Processing by PoemsController#update as JSON
+  Parameters: {"modified_content"=>"Out of the tinsel that provenances me, Vexatious as the jar from promenade to thicket, I concur whatever shames may countersue For my utensil network. In the coaster simulation of rebirth I boast falsely gasped nor sized loosely. Under the relievers of simplicity My administration signifies laborious, but bravura. Beyond this criterion of tempo and zooms Immunities but the Launderer of the evocation, And quickly the edema of the pioneers Dimmers and shall dupe me spotty.", "id"=>"1", "poem"=>{"modified_content"=>"Out of the tinsel that provenances me, Vexatious as the jar from promenade to thicket, I concur whatever shames may countersue For my utensil network. In the coaster simulation of rebirth I boast falsely gasped nor sized loosely. Under the relievers of simplicity My administration signifies laborious, but bravura. Beyond this criterion of tempo and zooms Immunities but the Launderer of the evocation, And quickly the edema of the pioneers Dimmers and shall dupe me spotty."}}
+  [1m[36mPoem Load (0.3ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/poems_controller.rb:22:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/poems_controller.rb:23:in `update'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/poems_controller.rb:23:in `update'
+  [1m[36mPoem Update (3.0ms)[0m  [1m[33mUPDATE "poems" SET "modified_content" = $1, "updated_at" = $2 WHERE "poems"."id" = $3[0m  [["modified_content", "Out of the tinsel that provenances me, Vexatious as the jar from promenade to thicket, I concur whatever shames may countersue For my utensil network. In the coaster simulation of rebirth I boast falsely gasped nor sized loosely. Under the relievers of simplicity My administration signifies laborious, but bravura. Beyond this criterion of tempo and zooms Immunities but the Launderer of the evocation, And quickly the edema of the pioneers Dimmers and shall dupe me spotty."], ["updated_at", "2020-02-11 22:12:17.186158"], ["id", 1]]
+  ↳ app/controllers/poems_controller.rb:23:in `update'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/poems_controller.rb:23:in `update'
+Completed 200 OK in 14ms (Views: 0.5ms | ActiveRecord: 4.7ms | Allocations: 4224)
+
+
+Started GET "/poems" for ::1 at 2020-02-11 14:18:17 -0800
+Processing by PoemsController#index as */*
+  [1m[36mPoem Load (0.9ms)[0m  [1m[34mSELECT "poems".* FROM "poems"[0m
+  ↳ app/controllers/poems_controller.rb:4:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/poems_controller.rb:4:in `index'
+Completed 200 OK in 7ms (Views: 3.7ms | ActiveRecord: 1.7ms | Allocations: 2037)
+
+
+Started GET "/poems" for ::1 at 2020-02-11 14:19:37 -0800
+Processing by PoemsController#index as */*
+  [1m[36mPoem Load (2.0ms)[0m  [1m[34mSELECT "poems".* FROM "poems"[0m
+  ↳ app/controllers/poems_controller.rb:4:in `index'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/poems_controller.rb:4:in `index'
+Completed 200 OK in 12ms (Views: 8.3ms | ActiveRecord: 3.1ms | Allocations: 1933)
+
+
+  [1m[35m (8.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (25.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (2.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "template1"[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (6.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8543186182308297450)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20191203212958)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (49.3ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20191203212958"]]
+  [1m[35m (26.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePoems (20191203212930)
+  [1m[35m (3.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (20.8ms)[0m  [1m[35mDROP TABLE "poems"[0m
+  [1m[36mprimary::SchemaMigration Destroy (26.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20191203212930"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(8543186182308297450)[0m
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3637123301803800270)[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (18.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2020-02-19 01:17:45.179624"], ["key", "environment"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3637123301803800270)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
